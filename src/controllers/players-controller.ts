@@ -1,0 +1,14 @@
+import { Request, Response } from 'express';
+import { getPlayerService } from '../services/players-services';
+import { ok } from '../utils/http-helper';
+
+export const getPlayer = async (req: Request, res: Response) => {
+    const httpResponse = await getPlayerService();
+    
+
+    res.status(httpResponse.statusCode).json(httpResponse.body)
+};
+
+export const getPlayerById = async (req: Request, res: Response) => {
+    const id = req.params.id;
+};
